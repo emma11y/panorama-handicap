@@ -1,0 +1,3 @@
+Titre : Fatiguabilité
+Description : une personne a l'air fatigué, les bras balants, la tête vers le sol, est lié a une grosse pile déchargé
+sous titre : "Allez, plus qu'une heure..."
