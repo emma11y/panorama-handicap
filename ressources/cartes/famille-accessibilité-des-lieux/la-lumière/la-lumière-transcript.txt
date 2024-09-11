@@ -1,0 +1,3 @@
+titre: la lumière
+description : 3 personnes sont dans une piece très lumineuse, on voit le soleil passer par la fenetre, et le néon projeter de la lumière forte, les deux personnes lancent un regard désaprobateur a la troisieme qui porte des lunettes de soleil
+sous titre: "tu fais ta star!"

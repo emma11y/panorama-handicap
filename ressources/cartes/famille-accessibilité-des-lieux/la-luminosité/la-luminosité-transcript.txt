@@ -1,0 +1,3 @@
+titre : la luminosité
+description : une personne se tiens devant son pc, l'écran du pc semble très lumineux, et éclaire la piece qui semble dans le noir
+sous-titre : quan est-ce que j'arrête de bosser dans une cave ?
