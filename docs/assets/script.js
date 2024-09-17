@@ -99,7 +99,7 @@ class CustomCartes extends HTMLElement {
   }
 
   async loadCartes() {
-    const jsonFileName = '/assets/cartes.json';
+    let jsonFileName = '/assets/cartes.json';
 
     const absolutePath = 'https://emma11y.github.io/panorama-handicap';
 
