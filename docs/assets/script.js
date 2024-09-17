@@ -73,7 +73,12 @@ class CustomHeader extends HTMLElement {
     const links = this.shadowRoot.querySelectorAll('a');
 
     links.forEach((link) => {
-      console.log(window.location.href);
+      if (window.location.hostname.includes('emma11y.github.io')) {
+        const absolutePath = 'https://emma11y.github.io/panorama-handicap';
+        link.href = absolutePath + link.href;
+        console.log(link.href);
+      }
+
       if (
         window.location.href.includes(link.href) ||
         (window.location.href.includes('index') &&
@@ -181,12 +186,6 @@ async function loadComponent(shadowRoot, htmlFileName, cssFileName) {
     if (window.location.hostname.includes('emma11y.github.io')) {
       htmlFileName = absolutePath + htmlFileName;
       cssFileName = absolutePath + cssFileName;
-
-      const links = shadowRoot.querySelectorAll('a');
-
-      links.forEach((link) => {
-        link.href = absolutePath + link.href;
-      });
     }
 
     const responseHTML = await fetch(htmlFileName);
