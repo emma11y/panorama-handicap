@@ -75,9 +75,12 @@ class CustomHeader extends HTMLElement {
     const links = this.shadowRoot.querySelectorAll('a');
 
     links.forEach((link) => {
+      console.log(window.location.href);
       if (
         window.location.href.includes(link.href) ||
-        (window.location.href.includes('index') && link.href.includes('index'))
+        (window.location.href.includes('index') &&
+          link.href.includes('index')) ||
+        (!window.location.href.includes('html') && link.href.includes('index'))
       ) {
         link.setAttribute('aria-current', 'page');
         link.classList.add('active');
