@@ -91,6 +91,13 @@ class CustomHeader extends HTMLElement {
 
 async function loadComponent(shadowRoot, htmlFileName, cssFileName) {
   try {
+    const absolutePath = 'https://emma11y.github.io/panorama-handicap';
+
+    if (window.location.hostname.includes('emma11y.github.io')) {
+      htmlFileName = absolutePath + cssFileName;
+      htmlFileName = absolutePath + cssFileName;
+    }
+
     const responseHTML = await fetch(htmlFileName);
     if (!responseHTML.ok) {
       throw new Error(
