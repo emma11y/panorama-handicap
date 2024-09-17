@@ -94,8 +94,8 @@ async function loadComponent(shadowRoot, htmlFileName, cssFileName) {
     const absolutePath = 'https://emma11y.github.io/panorama-handicap';
 
     if (window.location.hostname.includes('emma11y.github.io')) {
-      htmlFileName = absolutePath + cssFileName;
-      htmlFileName = absolutePath + cssFileName;
+      htmlFileName = absolutePath + htmlFileName;
+      cssFileName = absolutePath + cssFileName;
     }
 
     const responseHTML = await fetch(htmlFileName);
