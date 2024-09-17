@@ -74,9 +74,11 @@ class CustomHeader extends HTMLElement {
 
     links.forEach((link) => {
       if (window.location.hostname.includes('emma11y.github.io')) {
-        const absolutePath = 'https://emma11y.github.io/panorama-handicap';
-        link.href = absolutePath + link.href;
-        console.log(link.href);
+        const absolutePath = 'https://emma11y.github.io/panorama-handicap/';
+
+        const routerLink = link.getAttribute('routerLink');
+        link.href = absolutePath + routerLink;
+        link.removeAttribute('routerLink');
       }
 
       if (
