@@ -182,7 +182,7 @@ async function loadComponent(shadowRoot, htmlFileName, cssFileName) {
       htmlFileName = absolutePath + htmlFileName;
       cssFileName = absolutePath + cssFileName;
 
-      const links = this.shadowRoot.querySelectorAll('a');
+      const links = shadowRoot.querySelectorAll('a');
 
       links.forEach((link) => {
         link.href = absolutePath + link.href;
