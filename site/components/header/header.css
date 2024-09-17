@@ -1,0 +1,100 @@
+fieldset {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1em;
+  border: none;
+}
+
+.theme-switcher {
+  text-align: right;
+}
+
+.theme-switcher button {
+  background-color: var(--bg-primary);
+  border: 0.1rem solid var(--color-primary);
+  color: var(--color-primary);
+  cursor: pointer;
+  width: 6em;
+  padding: 0.5em 1em;
+  display: inline-flex;
+}
+
+.theme-switcher button svg {
+  height: 1.7em;
+  margin: auto;
+}
+
+.theme-switcher button svg path {
+  fill: var(--color-primary);
+}
+
+.theme-switcher button:hover {
+  color: var(--white);
+  background-color: var(--red);
+  border-color: var(--bg-primary);
+}
+
+.theme-switcher button:hover svg path {
+  fill: var(--white);
+}
+
+.check {
+  display: none;
+  height: 1em !important;
+}
+
+[aria-pressed='true'] .check {
+  display: block;
+}
+
+a {
+  color: var(--red);
+}
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+nav {
+  padding: 1em 1.5em;
+  text-align: center;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+nav ul li {
+  display: inline;
+  margin-right: 1em;
+}
+nav ul li a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  text-decoration-thickness: 0.2em;
+  text-decoration-line: underline;
+  text-decoration-style: unset;
+  text-underline-offset: 0.5em;
+}
+
+nav ul li a.active {
+  text-decoration-color: var(--red);
+}
+
+nav ul li a:hover,
+nav ul li a.active:hover {
+  text-decoration-color: var(--color-primary);
+}
