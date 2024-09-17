@@ -1,13 +1,11 @@
 window.onload = () => {
-  initAccessibility();
   setComponents();
 };
 
 function setComponents() {
   customElements.define('custom-header', CustomHeader);
+  customElements.define('custom-cartes', CustomCartes);
 }
-
-function initAccessibility() {}
 
 class CustomHeader extends HTMLElement {
   constructor() {
@@ -86,6 +84,93 @@ class CustomHeader extends HTMLElement {
         link.classList.add('active');
       }
     });
+  }
+}
+
+class CustomCartes extends HTMLElement {
+  constructor() {
+    super();
+
+    this.attachShadow({ mode: 'open' });
+  }
+
+  async connectedCallback() {
+    await this.loadCartes();
+  }
+
+  async loadCartes() {
+    const jsonFileName = '/assets/cartes.json';
+
+    const absolutePath = 'https://emma11y.github.io/panorama-handicap';
+
+    if (window.location.hostname.includes('emma11y.github.io')) {
+      jsonFileName = absolutePath + jsonFileName;
+    }
+
+    const response = await fetch(jsonFileName);
+    if (!response.ok) {
+      throw new Error(
+        'Erreur lors du chargement du fichier JSON : ' + response.statusText
+      );
+    }
+
+    const cartes = await response.json();
+    cartes.familles.forEach((famille) => {
+      const details = document.createElement('details');
+      details.id = famille.id;
+
+      const summary = document.createElement('summary');
+      summary.textContent = famille.titre;
+
+      details.appendChild(summary);
+
+      famille.cartes.forEach((carte) => {
+        const div = document.createElement('div');
+        div.id = carte.id;
+
+        const titre = document.createElement('p');
+        titre.textContent = carte.titre;
+
+        const sousTitre = document.createElement('p');
+        sousTitre.textContent = carte.sousTitre;
+
+        const description = document.createElement('p');
+        description.textContent = carte.description;
+
+        div.appendChild(titre);
+        div.appendChild(sousTitre);
+        div.appendChild(description);
+
+        details.appendChild(div);
+      });
+
+      this.shadowRoot.appendChild(details);
+    });
+
+    /* const style = document.createElement('style');
+    style.textContent = `details > summary {
+  padding: 2px 6px;
+  width: 15em;
+  background-color: #ddd;
+  border: none;
+  box-shadow: 3px 3px 4px black;
+  cursor: pointer;
+}
+
+details > p {
+  border-radius: 0 0 10px 10px;
+  background-color: #ddd;
+  padding: 2px 6px;
+  margin: 0;
+  box-shadow: 3px 3px 4px black;
+}
+
+details[open] > summary {
+  background-color: #ccf;
+}
+`;*/
+
+    this.shadowRoot.appendChild(style);
   }
 }
 

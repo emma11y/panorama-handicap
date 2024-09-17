@@ -1,0 +1,106 @@
+{
+  "familles": [
+    {
+      "id": "organisation-de-la-journee",
+      "titre": "Organisation de la journée",
+      "cartes": [
+        {
+          "id": "daily-meeting",
+          "titre": "Daily meeting",
+          "sous-titre": "Est-ce qu'on pourrait s'asseoir pour le daily ?",
+          "description": " 4 personnes sont debout, une femme est en train de parler en direction de deux hommes qui l'écoute attentivement, et la quatrième personne a une canne, des éclairs sont dessiné vers son dos pour signifier la douleur ou l'inconfort.",
+          "image": ""
+        },
+        {
+          "id": "emploi-du-temps",
+          "titre": "Emploi du temps",
+          "sous-titre": "- Tu te rappelles qu'on a notre point quicky à 15h30 ? \n - Ah, je l'avais pas noté. \n Es-tu disponible pour un point quicky maintenant ?",
+          "description": "Deux personnes sont devant un tableau de planning pleins de post-its, avec des flèches qui lient des post-it entre eux. Une des personnes désigne sa montre, l'autre personne regarde le tableau d'un air interrogatif.",
+          "image": ""
+        },
+        {
+          "id": "fatigabilite",
+          "titre": "Fatigabilité",
+          "sous-titre": "Allez, plus qu'une heure...",
+          "description": "Une personne a l'air fatigué, les bras ballants, la tête vers le sol et est liée à une grosse pile déchargée.",
+          "image": ""
+        },
+        {
+          "id": "horaires-de-travail",
+          "titre": "Horaires de travail",
+          "sous-titre": "Je dois aller chez le médecin à 17h.",
+          "description": "Une personne est assise à son bureau et regarde l'horloge qui indique 17h00.",
+          "image": ""
+        },
+        {
+          "id": "réunion",
+          "titre": "Réunion",
+          "sous-titre": "Je n'arrive pas à suivre.",
+          "description": "4 personnes sont autour d'une table, 3 personnes discutent avec animation, la 4ème regarde les 3 autres avec des points d'interrogations au-dessus de la tête.",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "accessibilite-des-lieux",
+      "titre": "Accessibilité des lieux",
+      "cartes": [
+        {
+          "id": "escaliers",
+          "titre": "Escaliers",
+          "sous-titre": "Je vais apprendre à me téléporter",
+          "description": "Une personne en fauteuil roulant se tient devant un escalier et un ascenseur qui a un écriteau sur lequel est écrit \"en panne\".",
+          "image": ""
+        },
+        {
+          "id": "la-lumiere",
+          "titre": "La lumière",
+          "sous-titre": "Tu fais ta star !",
+          "description": "Trois personnes sont dans une pièce très lumineuse, on voit le soleil passer par la fenêtre, et le néon projeter de la lumière forte, les deux personnes lancent un regard désapprobateur à la troisième qui porte des lunettes de soleil.",
+          "image": ""
+        },
+        {
+          "id": "la-luminosite",
+          "titre": "La luminosité",
+          "sous-titre": "Quand est-ce que j'arrête de bosser dans une cave ?",
+          "description": "Une personne se tient devant son pc, l'écran du pc semble très lumineux, et éclaire la pièce qui semble dans le noir.",
+          "image": ""
+        },
+        {
+          "id": "",
+          "titre": "",
+          "sous-titre": "",
+          "description": "",
+          "image": ""
+        },
+        {
+          "id": "",
+          "titre": "",
+          "sous-titre": "",
+          "description": "",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "materiel",
+      "titre": "Matériel",
+      "cartes": [
+        {
+          "id": "chaise",
+          "titre": "Chaise / fauteuil avec accoudoir",
+          "sous-titre": "Non bah je vais m'asseoir par terre",
+          "description": "",
+          "image": ""
+        },
+        {
+          "id": "",
+          "titre": "",
+          "sous-titre": "",
+          "description": "",
+          "image": ""
+        }
+      ]
+    }
+  ]
+}

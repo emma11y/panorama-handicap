@@ -1,5 +1,5 @@
 titre: Emploi du temps
-description : 2 personnes sont devant un tableau de planning plein de post it, avec des flèches qui lient des post it entre eux. Une des personnes désigne sa montre, l'autre personne regarde le tableau d'un air interogatif.
+description : 2 personnes sont devant un tableau de planning pleins de post-it, avec des flèches qui lient des post-it entre eux. Une des personnes désigne sa montre, l'autre personne regarde le tableau d'un air interrogatif.
 sous-titre : "Tu te rappelles qu'on a notre point quicky à 15h30 ?"
 "Ah, je l'avais pas noté."
 "Es-tu disponible pour un point quicky maintenant?"
