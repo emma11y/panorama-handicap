@@ -168,9 +168,9 @@ details > p {
 details[open] > summary {
   background-color: #ccf;
 }
-`;*/
+`;
 
-    this.shadowRoot.appendChild(style);
+    this.shadowRoot.appendChild(style);*/
   }
 }
 
@@ -181,6 +181,12 @@ async function loadComponent(shadowRoot, htmlFileName, cssFileName) {
     if (window.location.hostname.includes('emma11y.github.io')) {
       htmlFileName = absolutePath + htmlFileName;
       cssFileName = absolutePath + cssFileName;
+
+      const links = this.shadowRoot.querySelectorAll('a');
+
+      links.forEach((link) => {
+        link.href = absolutePath + link.href;
+      });
     }
 
     const responseHTML = await fetch(htmlFileName);
