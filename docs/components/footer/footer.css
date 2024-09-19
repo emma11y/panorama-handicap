@@ -1,0 +1,40 @@
+footer {
+  margin-top: 2em;
+  padding-top: 2em;
+  border-top: 1px solid var(--color-primary);
+}
+
+a {
+  color: var(--red);
+}
+
+a:hover {
+  text-decoration-thickness: 0.2em;
+  text-decoration-line: underline;
+  text-decoration-style: unset;
+  text-underline-offset: 0.25em;
+}
+
+.logo-shodo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-shodo .logo {
+  text-align: center;
+}
+
+.logo-shodo .bg-red {
+  background-color: var(--red);
+  padding: 15px 12px;
+}
+
+.wrap-logo {
+  background-color: var(--white);
+}
+
+.brand {
+  text-transform: uppercase;
+  width: 9em;
+  padding-left: 1em;
+}

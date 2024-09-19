@@ -1,9 +1,13 @@
+const absolutePath = 'https://emma11y.github.io/panorama-handicap';
+const isProd = window.location.hostname.includes('emma11y.github.io');
+
 window.onload = () => {
   setComponents();
 };
 
 function setComponents() {
   customElements.define('custom-header', CustomHeader);
+  customElements.define('custom-footer', CustomFooter);
   customElements.define('custom-cartes', CustomCartes);
 }
 
@@ -73,12 +77,12 @@ class CustomHeader extends HTMLElement {
     const links = this.shadowRoot.querySelectorAll('a');
 
     links.forEach((link) => {
-      if (window.location.hostname.includes('emma11y.github.io')) {
-        const absolutePath = 'https://emma11y.github.io/panorama-handicap/';
+      const routerLink = link.getAttribute('routerLink');
+      link.href = `${window.location.protocol}//${window.location.host}/${routerLink}`;
+      link.removeAttribute('routerLink');
 
-        const routerLink = link.getAttribute('routerLink');
+      if (isProd) {
         link.href = absolutePath + routerLink;
-        link.removeAttribute('routerLink');
       }
 
       if (
@@ -91,6 +95,22 @@ class CustomHeader extends HTMLElement {
         link.classList.add('active');
       }
     });
+  }
+}
+
+class CustomFooter extends HTMLElement {
+  constructor() {
+    super();
+
+    this.attachShadow({ mode: 'open' });
+  }
+
+  async connectedCallback() {
+    await loadComponent(
+      this.shadowRoot,
+      '/components/footer/footer.html',
+      '/components/footer/footer.css'
+    );
   }
 }
 
@@ -108,9 +128,7 @@ class CustomCartes extends HTMLElement {
   async loadCartes() {
     let jsonFileName = '/assets/cartes.json';
 
-    const absolutePath = 'https://emma11y.github.io/panorama-handicap';
-
-    if (window.location.hostname.includes('emma11y.github.io')) {
+    if (isProd) {
       jsonFileName = absolutePath + jsonFileName;
     }
 
@@ -138,15 +156,15 @@ class CustomCartes extends HTMLElement {
         const titre = document.createElement('p');
         titre.textContent = carte.titre;
 
-        const sousTitre = document.createElement('p');
-        sousTitre.textContent = carte.sousTitre;
-
         const description = document.createElement('p');
         description.textContent = carte.description;
 
+        const sousTitre = document.createElement('p');
+        sousTitre.innerText = carte.sousTitre;
+
         div.appendChild(titre);
-        div.appendChild(sousTitre);
         div.appendChild(description);
+        div.appendChild(sousTitre);
 
         details.appendChild(div);
       });
@@ -183,9 +201,7 @@ details[open] > summary {
 
 async function loadComponent(shadowRoot, htmlFileName, cssFileName) {
   try {
-    const absolutePath = 'https://emma11y.github.io/panorama-handicap';
-
-    if (window.location.hostname.includes('emma11y.github.io')) {
+    if (isProd) {
       htmlFileName = absolutePath + htmlFileName;
       cssFileName = absolutePath + cssFileName;
     }

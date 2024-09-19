@@ -76,17 +76,13 @@
 [data-selected-theme='dark'] {
   --bg-primary: var(--dark);
   --color-primary: var(--white);
-  --red: #eb241c;
+  --red: #ee1b48;
 }
 
 [data-selected-theme='light'] {
   --bg-primary: var(--white);
   --color-primary: var(--dark);
-  --red: #df291b;
-}
-
-a {
-  color: var(--red);
+  --red: #db2958;
 }
 
 html {
@@ -107,8 +103,53 @@ main {
   max-width: 900px;
   margin: auto;
   padding: 1em;
+  line-height: 1.5em;
 }
 
 h1 {
   text-align: center;
+  line-height: normal;
+}
+
+.font-bold {
+  font-weight: 600;
+}
+
+a {
+  color: var(--red);
+}
+
+a:hover {
+  text-decoration-thickness: 0.2em;
+  text-decoration-line: underline;
+  text-decoration-style: unset;
+  text-underline-offset: 0.25em;
+}
+
+.bg-red {
+  background-color: var(--red);
+}
+
+.logo-shodo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-shodo .logo {
+  text-align: center;
+}
+
+.logo-shodo .bg-red {
+  padding: 15px 12px;
+}
+
+.wrap-logo {
+  background-color: var(--white);
+}
+
+.brand {
+  text-transform: uppercase;
+  width: 9em;
+  padding-left: 1em;
 }
