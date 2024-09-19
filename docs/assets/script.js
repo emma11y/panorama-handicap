@@ -9,6 +9,7 @@ function setComponents() {
   customElements.define('custom-header', CustomHeader);
   customElements.define('custom-footer', CustomFooter);
   customElements.define('custom-cartes', CustomCartes);
+  customElements.define('custom-picture', CustomPicture);
 }
 
 class CustomHeader extends HTMLElement {
@@ -196,6 +197,29 @@ details[open] > summary {
 `;
 
     this.shadowRoot.appendChild(style);*/
+  }
+}
+
+class CustomPicture extends HTMLElement {
+  constructor() {
+    super();
+
+    this.attachShadow({ mode: 'open' });
+  }
+
+  connectedCallback() {
+    let img = document.createElement('img');
+    img.alt = this.attributes.alt.value;
+    img.src = `${window.location.protocol}//${window.location.host}/${this.attributes.src.value}`;
+    img.setAttribute('lazy', 'loading');
+
+    console.log(img.alt, img.src);
+
+    if (isProd) {
+      img.src = `${absolutePath}/${src}`;
+    }
+
+    this.shadowRoot.appendChild(img);
   }
 }
 
