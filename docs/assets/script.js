@@ -216,7 +216,7 @@ class CustomPicture extends HTMLElement {
     console.log(img.alt, img.src);
 
     if (isProd) {
-      img.src = `${absolutePath}/${src}`;
+      img.src = `${absolutePath}/${this.attributes.src.value}`;
     }
 
     this.shadowRoot.appendChild(img);
