@@ -78,7 +78,7 @@ class CustomHeader extends HTMLElement {
 
     links.forEach((link) => {
       const routerLink = link.getAttribute('routerLink');
-      link.href = `${window.location.protocol}//${window.location.host}/${routerLink}`;
+      link.href = `${window.location.protocol}//${window.location.host}/panorama-handicap/${routerLink}`;
       link.removeAttribute('routerLink');
 
       if (isProd) {
