@@ -77,12 +77,14 @@
   --bg-primary: var(--dark);
   --color-primary: var(--white);
   --red: #ee1b48;
+  --blue: #1e90ff;
 }
 
 [data-selected-theme='light'] {
   --bg-primary: var(--white);
   --color-primary: var(--dark);
   --red: #db2958;
+  --blue: #156fe8;
 }
 
 html {
@@ -152,4 +154,46 @@ a:hover {
   text-transform: uppercase;
   width: 9em;
   padding-left: 1em;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.pr-2 {
+  padding-right: 2rem;
+}
+
+@media screen and (max-width: 599px) {
+  .s-row {
+    flex-direction: column;
+  }
+
+  .s-pr-0 {
+    padding-right: 0;
+  }
+}
+
+.reseaux-sociaux ul {
+  list-style: none;
+  display: flex;
+  margin: auto;
+  padding: 0;
+  flex-direction: column;
+}
+
+.reseaux-sociaux ul li {
+  margin-bottom: 1em;
+}
+
+.reseaux-sociaux ul li svg {
+  vertical-align: middle;
+  width: 2em;
 }

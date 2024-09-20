@@ -216,6 +216,38 @@ class CustomPicture extends HTMLElement {
       img.src = `${absolutePath}/${this.attributes.src.value}`;
     }
 
+    if (this.attributes.style) {
+      img.style = this.attributes.style.value;
+    }
+
+    if (this.attributes.class) {
+      img.classList.add(this.attributes.class.value);
+
+      const style = document.createElement('style');
+      style.textContent = `
+        .img-responsive { width:20rem; }
+
+        .img-round {
+          border-radius: 50%;
+          height: auto;
+          width: 20rem;
+          height: 20rem;
+          object-fit: cover;
+        }
+          
+       .icon {
+          vertical-align: middle;
+          width:2em;
+        }
+
+        @media screen and (max-width: 599px) {
+          .img-responsive { width:100%; }
+        }
+        
+        `;
+      this.shadowRoot.appendChild(style);
+    }
+
     this.shadowRoot.appendChild(img);
   }
 }
@@ -279,6 +311,9 @@ class AppRouter extends HTMLElement {
         break;
       case '/panorama-handicap/ressources':
         filename = '/pages/ressources.html';
+        break;
+      case '/panorama-handicap/a-propos':
+        filename = '/pages/a-propos.html';
         break;
       default:
         filename = '/pages/erreur.html';
