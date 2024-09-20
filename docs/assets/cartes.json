@@ -46,6 +46,13 @@
       "titre": "Accessibilité des lieux",
       "cartes": [
         {
+          "id": "acces-a-la-medecine",
+          "titre": "Accès à la médecine",
+          "sousTitre": "J'ai besoin d'aménager mon poste mais il faudrait aménager le médecin.",
+          "description": "La personne est en fauteuil roulant devant la porte du cabinet médicale avec des escaliers pour y accéder.",
+          "image": ""
+        },
+        {
           "id": "alarmes",
           "titre": "Alarmes",
           "sousTitre": "- Pourquoi tout le monde panique ? \n - C'est trop fort !",
@@ -57,6 +64,13 @@
           "titre": "Bruits",
           "sousTitre": "J'ai besoin de silence !",
           "description": "Dans une pièce, une personne avec un casque est très perturbée par de nombreux bruits qu'elle entend telles que les bruits de conversations, du téléphone, de la voiture à cause de la fenètre ouverte, du bruit venant de l'aération et du bruit venant du lampadaire.",
+          "image": ""
+        },
+        {
+          "id": "chauffage-climatisation",
+          "titre": "Chauffage / climatisation",
+          "sousTitre": "J'ai chaud / froid",
+          "description": "Deux cases : une personne a un éventail qu'elle agite et derrière elle, une climatisateur et une autre personne avec son manteau et son bonnet et essaie de se réchauffer devant le chauffage",
           "image": ""
         },
         {
@@ -81,17 +95,17 @@
           "image": ""
         },
         {
+          "id": "les-toilettes",
+          "titre": "Les toilettes",
+          "sousTitre": "Pourquoi la salle de la réunion était aussi loin ?",
+          "description": "La personne arrive en courant vers la porte d'entrée des toilettes.",
+          "image": ""
+        },
+        {
           "id": "open-space",
           "titre": "Open space",
           "sousTitre": "Je ne peux pas me concentrer !",
           "description": "Dans un open space, une personne est à son bureau et bouche ses oreilles avec ses mains à cause des multiples bruits qui circulent dans l'open space : une personne tape sur son téléphone, de nombreux personnes discutent aux quatre coins de la pièce, des bruits benant de l'aération, des bruits venant des lampadaires, des bruits du clavier et des bruits des notifications de l'ordinateur.",
-          "image": ""
-        },
-        {
-          "id": "",
-          "titre": "",
-          "sousTitre": "",
-          "description": "",
           "image": ""
         }
       ]
@@ -105,6 +119,13 @@
           "titre": "Chaise / fauteuil avec accoudoir",
           "sousTitre": "Non bah je vais m'asseoir par terre",
           "description": "",
+          "image": ""
+        },
+        {
+          "id": "sac-ordinateur",
+          "titre": "Sac d'ordinateur",
+          "sousTitre": "Qu'est ce que c'est lourd !",
+          "description": "La personne porte sur son épaule une lourde charge.",
           "image": ""
         },
         {

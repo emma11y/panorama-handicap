@@ -1,11 +1,14 @@
 const absolutePath = 'https://emma11y.github.io/panorama-handicap';
 const isProd = window.location.hostname.includes('emma11y.github.io');
 
-window.onload = () => {
+window.onload = () => {};
+
+document.addEventListener('DOMContentLoaded', () => {
   setComponents();
-};
+});
 
 function setComponents() {
+  customElements.define('app-router', AppRouter);
   customElements.define('custom-header', CustomHeader);
   customElements.define('custom-footer', CustomFooter);
   customElements.define('custom-cartes', CustomCartes);
@@ -78,23 +81,23 @@ class CustomHeader extends HTMLElement {
     const links = this.shadowRoot.querySelectorAll('a');
 
     links.forEach((link) => {
-      const routerLink = link.getAttribute('routerLink');
-      link.href = `${window.location.protocol}//${window.location.host}/${routerLink}`;
-      link.removeAttribute('routerLink');
+      let routerLink = link.getAttribute('routerLink');
 
       if (isProd) {
-        link.href = `${absolutePath}/${routerLink}`;
+        routerLink = `/panorama-handicap${routerLink}`;
       }
 
-      if (
-        window.location.href.includes(link.href) ||
-        (window.location.href.includes('index') &&
-          link.href.includes('index')) ||
-        (!window.location.href.includes('html') && link.href.includes('index'))
-      ) {
+      if (window.location.pathname === routerLink) {
         link.setAttribute('aria-current', 'page');
         link.classList.add('active');
+      } else {
+        link.removeAttribute('aria-current');
+        link.classList.remove('active');
       }
+
+      link.addEventListener('click', () => {
+        this.setAriaCurrentPage();
+      });
     });
   }
 }
@@ -213,8 +216,6 @@ class CustomPicture extends HTMLElement {
     img.src = `${window.location.protocol}//${window.location.host}/${this.attributes.src.value}`;
     img.setAttribute('lazy', 'loading');
 
-    console.log(img.alt, img.src);
-
     if (isProd) {
       img.src = `${absolutePath}/${this.attributes.src.value}`;
     }
@@ -252,5 +253,60 @@ async function loadComponent(shadowRoot, htmlFileName, cssFileName) {
     shadowRoot.appendChild(style);
   } catch (error) {
     console.error('Erreur:', error);
+  }
+}
+
+class AppRouter extends HTMLElement {
+  constructor() {
+    super();
+    window.addEventListener('popstate', () => this.handleRoute());
+  }
+
+  async connectedCallback() {
+    await this.handleRoute();
+  }
+
+  async handleRoute() {
+    const path = window.location.pathname;
+
+    let filename = '';
+    switch (path) {
+      case '/':
+        filename = '/pages/accueil.html';
+        break;
+      case '/atelier':
+        filename = '/pages/atelier.html';
+        break;
+      case '/diaporama':
+        filename = '/pages/diaporama.html';
+        break;
+      case '/ressources':
+        filename = '/pages/ressources.html';
+        break;
+      default:
+        filename = '/pages/erreur.html';
+    }
+
+    this.innerHTML = await this.getHtmlContent(filename);
+  }
+
+  async navigate(path) {
+    window.history.pushState({}, '', path);
+    await this.handleRoute();
+  }
+
+  async getHtmlContent(htmlFileName) {
+    if (isProd) {
+      htmlFileName = absolutePath + htmlFileName;
+    }
+
+    const responseHTML = await fetch(htmlFileName);
+    if (!responseHTML.ok) {
+      throw new Error(
+        'Erreur lors du chargement du fichier HTML : ' + responseHTML.statusText
+      );
+    }
+
+    return await responseHTML.text();
   }
 }

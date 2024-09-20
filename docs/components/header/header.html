@@ -45,10 +45,34 @@
 
   <nav role="navigation">
     <ul>
-      <li><a routerLink="index.html">Accueil</a></li>
-      <li><a routerLink="pages/atelier.html">Atelier</a></li>
-      <li><a routerLink="pages/diaporama.html">Diaporama</a></li>
-      <li><a routerLink="pages/ressources.html">Ressources</a></li>
+      <li>
+        <a
+          routerLink="/"
+          onclick="event.preventDefault(); document.querySelector('app-router').navigate('/')"
+          >Accueil</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/atelier"
+          onclick="event.preventDefault(); document.querySelector('app-router').navigate('/atelier')"
+          >Atelier</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/diaporama"
+          onclick="event.preventDefault(); document.querySelector('app-router').navigate('/diaporama')"
+          >Diaporama</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/ressources"
+          onclick="event.preventDefault(); document.querySelector('app-router').navigate('/ressources')"
+          >Ressources</a
+        >
+      </li>
     </ul>
   </nav>
 </header>

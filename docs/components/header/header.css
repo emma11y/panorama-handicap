@@ -82,6 +82,7 @@ nav ul li {
 nav ul li a {
   color: var(--color-primary);
   text-decoration: none;
+  cursor: pointer;
 }
 
 nav ul li a:hover,
