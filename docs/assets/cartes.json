@@ -115,10 +115,24 @@
       "titre": "Matériel",
       "cartes": [
         {
+          "id": "bureau",
+          "titre": "Bureau",
+          "sousTitre": "Je ne vois pas mon écran !",
+          "description": "Le bureau est en hauteur avec trois ordinateurs et trois chaises hautes, deux personnes travaillent mais une troisième personne de petite taille ne peut pas accéder à l'ordinateur.",
+          "image": ""
+        },
+        {
           "id": "chaise",
           "titre": "Chaise / fauteuil avec accoudoir",
           "sousTitre": "Non bah je vais m'asseoir par terre",
           "description": "",
+          "image": ""
+        },
+        {
+          "id": "connexion-wifi-qualite-materiel",
+          "titre": "Connexion wifi / qualité du matériel",
+          "sousTitre": "Je ne peux pas lire sur les lèvres !",
+          "description": "La personne est devant son ordinateur en visio et voit les vignettes de différentes personnes tout pixelisées.",
           "image": ""
         },
         {
@@ -129,31 +143,17 @@
           "image": ""
         },
         {
-          "id": "",
-          "titre": "",
-          "sousTitre": "",
-          "description": "",
+          "id": "carte-telephone",
+          "titre": "Téléphone",
+          "sousTitre": "Est-ce qu'on pourrait plutôt s'écrire ?",
+          "description": "La personne est face au téléphone fixe qui sonne et ne sait pas quoi faire.",
           "image": ""
         },
         {
-          "id": "",
-          "titre": "",
-          "sousTitre": "",
-          "description": "",
-          "image": ""
-        },
-        {
-          "id": "",
-          "titre": "",
-          "sousTitre": "",
-          "description": "",
-          "image": ""
-        },
-        {
-          "id": "",
-          "titre": "",
-          "sousTitre": "",
-          "description": "",
+          "id": "materiel-souris-clavier-ordinateur",
+          "titre": "Matériel : souris / clavier / ordinateur",
+          "sousTitre": "Je ne peux pas utiliser cet outil à cause de mon handicap.",
+          "description": "La personne est devant son ordinateur et prend par le fil de la souris filiaire ne sachant pas quoi faire avec.",
           "image": ""
         }
       ]
