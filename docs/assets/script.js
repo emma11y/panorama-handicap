@@ -83,10 +83,6 @@ class CustomHeader extends HTMLElement {
     links.forEach((link) => {
       let routerLink = link.getAttribute('routerLink');
 
-      if (isProd) {
-        routerLink = `/panorama-handicap${routerLink}`;
-      }
-
       if (window.location.pathname === routerLink) {
         link.setAttribute('aria-current', 'page');
         link.classList.add('active');
@@ -272,15 +268,16 @@ class AppRouter extends HTMLElement {
     let filename = '';
     switch (path) {
       case '/':
+      case '/panorama-handicap/':
         filename = '/pages/accueil.html';
         break;
-      case '/atelier':
+      case '/panorama-handicap/atelier':
         filename = '/pages/atelier.html';
         break;
-      case '/diaporama':
+      case '/panorama-handicap/diaporama':
         filename = '/pages/diaporama.html';
         break;
-      case '/ressources':
+      case '/panorama-handicap/ressources':
         filename = '/pages/ressources.html';
         break;
       default:
