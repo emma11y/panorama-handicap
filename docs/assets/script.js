@@ -1,5 +1,7 @@
 const absolutePath = 'https://emma11y.github.io/panorama-handicap';
 const isProd = window.location.hostname.includes('emma11y.github.io');
+const titlePage =
+  'Immersion dans les Situations de Handicap : Participez à un Panorama Interactif';
 
 window.onload = () => {};
 
@@ -9,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function setComponents() {
   customElements.define('app-router', AppRouter);
+  customElements.define('router-link', RouterLink);
   customElements.define('custom-header', CustomHeader);
   customElements.define('custom-footer', CustomFooter);
   customElements.define('custom-cartes', CustomCartes);
@@ -78,12 +81,16 @@ class CustomHeader extends HTMLElement {
   }
 
   setAriaCurrentPage() {
-    const links = this.shadowRoot.querySelectorAll('a');
+    const routerLinks = this.shadowRoot.querySelectorAll('router-link');
 
-    links.forEach((link) => {
-      let routerLink = link.getAttribute('routerLink');
+    routerLinks.forEach((routerLink) => {
+      let link = routerLink.shadowRoot.querySelector('a');
 
-      if (window.location.pathname === routerLink) {
+      if (
+        window.location.pathname === routerLink.attributes.href.value ||
+        (window.location.pathname === '/' &&
+          routerLink.attributes.title.value === 'Accueil')
+      ) {
         link.setAttribute('aria-current', 'page');
         link.classList.add('active');
       } else {
@@ -297,29 +304,38 @@ class AppRouter extends HTMLElement {
   async handleRoute() {
     const path = window.location.pathname;
 
+    let title = '';
     let filename = '';
     switch (path) {
       case '/':
       case '/panorama-handicap/':
         filename = '/pages/accueil.html';
+        title = 'Accueil';
         break;
       case '/panorama-handicap/atelier':
         filename = '/pages/atelier.html';
+        title = 'Atelier';
         break;
       case '/panorama-handicap/diaporama':
         filename = '/pages/diaporama.html';
+        title = 'Diaporama';
         break;
       case '/panorama-handicap/ressources':
         filename = '/pages/ressources.html';
+        title = 'Ressources';
         break;
       case '/panorama-handicap/a-propos':
         filename = '/pages/a-propos.html';
+        title = 'A propos de nous';
         break;
       default:
         filename = '/pages/erreur.html';
+        title = 'Erreur 404';
     }
 
     this.innerHTML = await this.getHtmlContent(filename);
+    document.title = `${title} - ${titlePage}`;
+    document.querySelector('#title-page').textContent = document.title;
   }
 
   async navigate(path) {
@@ -340,5 +356,56 @@ class AppRouter extends HTMLElement {
     }
 
     return await responseHTML.text();
+  }
+}
+
+class RouterLink extends HTMLElement {
+  constructor() {
+    super();
+
+    this.attachShadow({ mode: 'open' });
+  }
+
+  connectedCallback() {
+    const link = document.createElement('a');
+    const href = this.attributes.href.value;
+
+    link.href = href;
+    link.text = this.attributes.title.value;
+    link.onclick = (event) => {
+      event.preventDefault();
+      document.querySelector('app-router').navigate(href);
+    };
+
+    const style = document.createElement('style');
+
+    style.textContent = `
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    a:hover,
+    a.active {
+      text-decoration-thickness: 0.2em;
+      text-decoration-line: underline;
+      text-decoration-style: unset;
+      text-underline-offset: 0.5em;
+    }
+
+    a.active {
+      text-decoration-color: var(--red);
+    }
+
+    a:hover,
+    a.active:hover {
+      text-decoration-color: var(--color-primary);
+    }
+    
+    `;
+
+    this.shadowRoot.appendChild(link);
+    this.shadowRoot.appendChild(style);
   }
 }

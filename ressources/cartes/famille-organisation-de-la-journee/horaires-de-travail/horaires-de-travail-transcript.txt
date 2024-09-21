@@ -1,3 +1,0 @@
-Titre : horaires de travail
-description : une personne est assise à son bureau et regarde l'horloge qui indique 17h00.
-Sous-Titre : Je dois aller chez le médecin à 17h.

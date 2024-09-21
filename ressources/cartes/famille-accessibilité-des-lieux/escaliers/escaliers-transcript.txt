@@ -1,3 +1,0 @@
-titre: escaliers
-description: une personne en fauteuil roulant se tient devant un escalier et un ascenseur qui a un écriteau sur lequel est écrit "en panne"
-sous-titre : je vais apprendre à me téléporter
