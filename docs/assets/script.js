@@ -348,8 +348,6 @@ class AppRouter extends HTMLElement {
   }
 
   async handleRoute() {
-    alert(window.location.href);
-
     const path = window.location.pathname;
 
     let title = '';
