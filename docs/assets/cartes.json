@@ -8,36 +8,31 @@
           "id": "daily-meeting",
           "titre": "Daily meeting",
           "sousTitre": "Est-ce qu'on pourrait s'asseoir pour le daily ?",
-          "description": " 4 personnes sont debout, une femme est en train de parler en direction de deux hommes qui l'écoute attentivement, et la quatrième personne a une canne, des éclairs sont dessiné vers son dos pour signifier la douleur ou l'inconfort.",
-          "image": ""
+          "description": " 4 personnes sont debout, une femme est en train de parler en direction de deux hommes qui l'écoute attentivement, et la quatrième personne a une canne, des éclairs sont dessiné vers son dos pour signifier la douleur ou l'inconfort."
         },
         {
           "id": "emploi-du-temps",
           "titre": "Emploi du temps",
-          "sousTitre": "- Tu te rappelles qu'on a notre point quicky à 15h30 ? \n - Ah, je l'avais pas noté. \n Es-tu disponible pour un point quicky maintenant ?",
-          "description": "Deux personnes sont devant un tableau de planning pleins de post-its, avec des flèches qui lient des post-it entre eux. Une des personnes désigne sa montre, l'autre personne regarde le tableau d'un air interrogatif.",
-          "image": ""
+          "sousTitre": "- Tu te rappelles qu'on a notre point quicky à 15h30 ? \n - Ah, je l'avais pas noté. \n - Es-tu disponible pour un point quicky maintenant ?",
+          "description": "Deux personnes sont devant un tableau de planning pleins de post-its, avec des flèches qui lient des post-it entre eux. Une des personnes désigne sa montre, l'autre personne regarde le tableau d'un air interrogatif."
         },
         {
           "id": "fatigabilite",
           "titre": "Fatigabilité",
           "sousTitre": "Allez, plus qu'une heure...",
-          "description": "Une personne a l'air fatigué, les bras ballants, la tête vers le sol et est liée à une grosse pile déchargée.",
-          "image": ""
+          "description": "Une personne a l'air fatigué, les bras ballants, la tête vers le sol et est liée à une grosse pile déchargée."
         },
         {
           "id": "horaires-de-travail",
           "titre": "Horaires de travail",
-          "sousTitre": "Je dois aller chez le médecin à 17h.",
-          "description": "Une personne est assise à son bureau et regarde l'horloge qui indique 17h00.",
-          "image": ""
+          "sousTitre": "Je dois aller chez le médecin à 17h !",
+          "description": "Une personne est assise à son bureau et regarde l'horloge qui indique 17h00."
         },
         {
-          "id": "réunion",
+          "id": "reunion",
           "titre": "Réunion",
           "sousTitre": "Je n'arrive pas à suivre.",
-          "description": "Dans une réunion, une personne face à trois personnes qui parlent sans interruption. Il y a un point d'interrogation et un point d'exclamation sur la personne qui n'arrive pas à suivre.",
-          "image": ""
+          "description": "Dans une réunion, une personne face à trois personnes qui parlent sans interruption. Il y a un point d'interrogation et un point d'exclamation sur la personne qui n'arrive pas à suivre."
         }
       ]
     },
@@ -46,67 +41,58 @@
       "titre": "Accessibilité des lieux",
       "cartes": [
         {
-          "id": "acces-a-la-medecine",
-          "titre": "Accès à la médecine",
+          "id": "acces-a-la-medecine-du-travail",
+          "titre": "Accès à la médecine du travail",
           "sousTitre": "J'ai besoin d'aménager mon poste mais il faudrait aménager le médecin.",
-          "description": "La personne est en fauteuil roulant devant la porte du cabinet médicale avec des escaliers pour y accéder.",
-          "image": ""
+          "description": "La personne est en fauteuil roulant devant la porte du cabinet médicale avec des escaliers pour y accéder."
         },
         {
           "id": "alarmes",
           "titre": "Alarmes",
           "sousTitre": "- Pourquoi tout le monde panique ? \n - C'est trop fort !",
-          "description": "",
-          "image": ""
+          "description": "Dans un open space, une personne est à son bureau et s'étonne fortement en voyant tout le monde se boucher les oreilles et se lever pour se diriger vers la sortie."
         },
         {
           "id": "bruits",
           "titre": "Bruits",
           "sousTitre": "J'ai besoin de silence !",
-          "description": "Dans une pièce, une personne avec un casque est très perturbée par de nombreux bruits qu'elle entend telles que les bruits de conversations, du téléphone, de la voiture à cause de la fenètre ouverte, du bruit venant de l'aération et du bruit venant du lampadaire.",
-          "image": ""
+          "description": "Dans une pièce, une personne avec un casque est très perturbée par de nombreux bruits qu'elle entend telles que les bruits de conversations, du téléphone, de la voiture à cause de la fenètre ouverte, du bruit venant de l'aération et du bruit venant du lampadaire."
         },
         {
           "id": "chauffage-climatisation",
           "titre": "Chauffage / climatisation",
-          "sousTitre": "J'ai chaud / froid",
-          "description": "Deux cases : une personne a un éventail qu'elle agite et derrière elle, une climatisateur et une autre personne avec son manteau et son bonnet et essaie de se réchauffer devant le chauffage",
-          "image": ""
+          "sousTitre": "J'ai chaud / froid.",
+          "description": "Deux cases : une personne a un éventail qu'elle agite et derrière elle, une climatisateur et une autre personne avec son manteau et son bonnet et essaie de se réchauffer devant le chauffage"
         },
         {
           "id": "escaliers",
           "titre": "Escaliers",
           "sousTitre": "Je vais apprendre à me téléporter.",
-          "description": "Une personne en fauteuil roulant se tient devant un escalier et un ascenseur qui a un écriteau sur lequel est écrit \"en panne\".",
-          "image": ""
+          "description": "Une personne en fauteuil roulant se tient devant un escalier et un ascenseur qui a un écriteau sur lequel est écrit \"en panne\"."
         },
         {
           "id": "la-lumiere",
           "titre": "La lumière",
           "sousTitre": "Tu fais ta star !",
-          "description": "Trois personnes sont dans une pièce très lumineuse, on voit le soleil passer par la fenêtre, et le néon projeter de la lumière forte, les deux personnes lancent un regard désapprobateur à la troisième qui porte des lunettes de soleil.",
-          "image": ""
+          "description": "Trois personnes sont dans une pièce très lumineuse, on voit le soleil passer par la fenêtre, et le néon projeter de la lumière forte, les deux personnes lancent un regard désapprobateur à la troisième qui porte des lunettes de soleil."
         },
         {
           "id": "la-luminosite",
           "titre": "La luminosité",
           "sousTitre": "Quand est-ce que j'arrête de bosser dans une cave ?",
-          "description": "Une personne se tient devant son pc, l'écran du pc semble très lumineux, et éclaire la pièce qui semble dans le noir.",
-          "image": ""
+          "description": "Une personne se tient devant son pc, l'écran du pc semble très lumineux, et éclaire la pièce qui semble dans le noir."
         },
         {
           "id": "les-toilettes",
           "titre": "Les toilettes",
           "sousTitre": "Pourquoi la salle de la réunion était aussi loin ?",
-          "description": "La personne arrive en courant vers la porte d'entrée des toilettes.",
-          "image": ""
+          "description": "La personne arrive en courant vers la porte d'entrée des toilettes."
         },
         {
           "id": "open-space",
           "titre": "Open space",
           "sousTitre": "Je ne peux pas me concentrer !",
-          "description": "Dans un open space, une personne est à son bureau et bouche ses oreilles avec ses mains à cause des multiples bruits qui circulent dans l'open space : une personne tape sur son téléphone, de nombreux personnes discutent aux quatre coins de la pièce, des bruits  \"buzz buzz\" venant de l'aération, des bruits  \"buzz buzz\" venant des lampadaires, des bruits du clavier et des bruits des notifications de l'ordinateur.",
-          "image": ""
+          "description": "Dans un open space, une personne est à son bureau et bouche ses oreilles avec ses mains à cause des multiples bruits qui circulent dans l'open space : une personne tape sur son téléphone, de nombreux personnes discutent aux quatre coins de la pièce, des bruits  \"buzz buzz\" venant de l'aération, des bruits  \"buzz buzz\" venant des lampadaires, des bruits du clavier et des bruits des notifications de l'ordinateur."
         }
       ]
     },
@@ -118,50 +104,147 @@
           "id": "bureau",
           "titre": "Bureau",
           "sousTitre": "Je ne vois pas mon écran !",
-          "description": "Le bureau est en hauteur avec trois ordinateurs et trois chaises hautes, deux personnes travaillent mais une troisième personne de petite taille ne peut pas accéder à l'ordinateur.",
-          "image": ""
+          "description": "Le bureau est en hauteur avec trois ordinateurs et trois chaises hautes, deux personnes travaillent mais une troisième personne de petite taille ne peut pas accéder à l'ordinateur."
         },
         {
-          "id": "chaise",
+          "id": "chaise-fauteuil-avec-accoudoir",
           "titre": "Chaise / fauteuil avec accoudoir",
-          "sousTitre": "Non bah je vais m'asseoir par terre",
-          "description": "",
-          "image": ""
+          "sousTitre": "Non bah je vais m'asseoir par terre.",
+          "description": ""
         },
         {
           "id": "connexion-wifi-qualite-materiel",
           "titre": "Connexion wifi / qualité du matériel",
           "sousTitre": "Je ne peux pas lire sur les lèvres !",
-          "description": "La personne est devant son ordinateur en visio et voit les vignettes de différentes personnes tout pixelisées.",
-          "image": ""
+          "description": "La personne est devant son ordinateur en visio et voit les vignettes de différentes personnes tout pixelisées."
         },
         {
           "id": "sac-ordinateur",
           "titre": "Sac d'ordinateur",
           "sousTitre": "Qu'est ce que c'est lourd !",
-          "description": "La personne porte sur son épaule une lourde charge.",
-          "image": ""
+          "description": "La personne porte sur son épaule une lourde charge."
         },
         {
-          "id": "carte-telephone",
+          "id": "telephone",
           "titre": "Téléphone",
           "sousTitre": "Est-ce qu'on pourrait plutôt s'écrire ?",
-          "description": "La personne est face au téléphone fixe qui sonne et ne sait pas quoi faire.",
-          "image": ""
+          "description": "La personne est face au téléphone fixe qui sonne et ne sait pas quoi faire."
         },
         {
           "id": "materiel-souris-clavier-ordinateur",
           "titre": "Matériel : souris / clavier / ordinateur",
           "sousTitre": "Je ne peux pas utiliser cet outil à cause de mon handicap.",
-          "description": "La personne est devant son ordinateur et prend par le fil de la souris filiaire ne sachant pas quoi faire avec.",
-          "image": ""
+          "description": "La personne est devant son ordinateur et prend par le fil de la souris filiaire ne sachant pas quoi faire avec."
         }
       ]
     },
     {
-      "id": "numérique",
+      "id": "numerique",
       "titre": "Numérique",
-      "cartes": []
+      "cartes": [
+        {
+          "id": "videos-podcasts",
+          "titre": "Vidéos / Podcasts",
+          "sousTitre": "Je ne comprends rien !",
+          "description": "Une personne sourde avec son implant cochléaire regarde une vidéo sans le son sur son ordinateur."
+        },
+        {
+          "id": "images",
+          "titre": "Images",
+          "sousTitre": "Je ne peux pas avoir l'information !",
+          "description": "Une personne aveugle avec ses lunettes noires et sa canne consulte une image sur son ordinateur et son lecteur écran vocalise \"image vide \". Cet image affiche \" INFORMATION IMPORTANTE pour cause de grèves l'école sera fermée les jours suivants : 20-21-22 / 02.\""
+        },
+        {
+          "id": "visio-conference",
+          "titre": "Les visio-conférences",
+          "sousTitre": "Mettez vos caméras !",
+          "description": "Une personne sourde avec son implant cochléaire est en visio-conférence sur son ordinateur. 4 vignettes s'affichent : deux vignettes sont noires, une vignette montrant un visage coupé, on ne voit pas ses lèvres et une vignette montrant une personne toute floue ou pixelisée."
+        },
+        {
+          "id": "logiciel-site-web",
+          "titre": "Logiciels / Site web",
+          "sousTitre": "Je ne comprends pas ce qu'on me demande !",
+          "description": "Une personne aveugle avec ses lunettes noires et sa canne consulte une page de formulaire de contact sur son ordinateur. Le lecteur d'écran vocalise : \"région formulaire titre contact édition vide édition vidé édition vide édition vide bouton envoyer\". Le formulaire de contact à l'écran contient 4 champs : nom, prénom, adresse mail et message ainsi qu'un bouton envoyer."
+        },
+        {
+          "id": "notifications",
+          "titre": "Notifications",
+          "sousTitre": "Je ne sais plus où donner de la tête.",
+          "description": "Une personne regarde sur ordinateur une multitude de notifications qui s'affichent : ding ! ding ! ding ! ding ! ding ! ding !"
+        },
+        {
+          "id": "support-numerique-pdf",
+          "titre": "Les supports numériques en PDF",
+          "sousTitre": "Je ne peux pas lire ce fichier !",
+          "description": "Une personne aveugle avec ses lunettes noires et sa canne essaie de consulter un fichier PDF sur son ordinateur. Le lecteur d'écran vocalise fichier non valide."
+        },
+        {
+          "id": "ecriture",
+          "titre": "Écriture",
+          "sousTitre": "Cordiallement, ça s’écrit avec un ou deux m ?",
+          "description": "Une personne est en train de rédiger un mail. Sur son écran, une multitude de mots en rouge. On voit en évidence le mot cordialement avec deux L et un seul m."
+        }
+      ]
+    },
+    {
+      "id": "evenements-sociaux-professionnels",
+      "titre": "Évenements sociaux / professionnels",
+      "cartes": [
+        {
+          "id": "alcool",
+          "titre": "Alcool",
+          "sousTitre": "- Je ne peux pas boire ! \n - Fais pas ta chochotte !",
+          "description": "Il y a 4 verres à l'image dont un verre sans alcool avec une paille et trois bières qui s'entrechoquent"
+        },
+        {
+          "id": "team-building",
+          "titre": "Team building",
+          "sousTitre": "Je ne peux pas participer au team building, est-ce que je fais parti(e) de l'équipe ?",
+          "description": "Sur le kayak, il y a trois personnes à bord. Sur la terre ferme, une personne grosse aimerait y participer. Mais il y a une pancarte en rouge que montre une autre personne sur laquelle il y a une image d'un bonhomme gros avec une croix en dessus."
+        },
+        {
+          "id": "nourriture",
+          "titre": "Nourriture",
+          "sousTitre": "J'ai faim mais je ne peux pas manger ce plat !",
+          "description": "De la charcuterie, des cacahuètes, des petits apéros, des chips, de l'ananas et un cocktail."
+        },
+        {
+          "id": "after-work-evenement-social",
+          "titre": "Afterwork / Evènement social",
+          "sousTitre": "Je suis trop fatigué(e) pour apprécier l'événement !",
+          "description": "Une personne frustrée devant un buffet d'acool et derrière elle, beaucoup de brouhaha des groupes de personnes qui discutent. On entend divers bruits comme les bruits de vaisselle et de la musique."
+        },
+        {
+          "id": "smalltalks-et-indiscretions",
+          "titre": "Smalltalks et indiscrétions",
+          "sousTitre": "- Pourquoi tu étais en congé ? \n - T'as fait quoi de tes vacances ? (Est-ce que je lui parle de mon séjour à l'hôpital ?)",
+          "description": "Une personne raconte ses vacances, on voit une bulle représentant la plage, le soleil et un palmier tandis qu'une autre personne mal à l'aise pense hôpital."
+        },
+        {
+          "id": "conversations-presentiel",
+          "titre": "Conversations en présentiel",
+          "sousTitre": "Je suis toujours la dernière personne à être au courant !",
+          "description": "Une personne sourde est dans sa bulle devant son ordinateur et derrière elle, un groupe de personne avec un manager qui crie Attention à tous, annonce importante !"
+        },
+        {
+          "id": "comportement-consentement",
+          "titre": "Comportement / consentement",
+          "sousTitre": "- Attendez je vais vous aider. \n - Mais, je ne vous ai rien demandé !",
+          "description": "Une personne agrippe par le bras une personne aveugle avec sa canne."
+        },
+        {
+          "id": "les-vetements",
+          "titre": "Les vêtements",
+          "sousTitre": "Je comprends pas pourquoi je dois me faire du mal avec cette tenue alors que je ne vois pas de client.",
+          "description": "Un homme avec sa cravate et son pantalon serré et une femme en jupe qui lui serre à la taille avec des chaussures à talon aiguille. "
+        },
+        {
+          "id": "les-odeurs",
+          "titre": "Les odeurs",
+          "sousTitre": "C'est quoi cette ordeur ?! J'arrive pas à respirer.",
+          "description": "Une personne se bouche le nez parce qu'elle sent des odeurs bizarres."
+        }
+      ]
     }
   ]
 }

@@ -147,7 +147,12 @@ class CustomCartes extends HTMLElement {
     }
 
     const cartes = await response.json();
-    cartes.familles.forEach((famille) => {
+
+    const familles = cartes.familles.sort((a, b) => {
+      return a.titre.localeCompare(b.titre);
+    });
+
+    familles.forEach((famille) => {
       const details = document.createElement('details');
       details.id = famille.id;
 
@@ -156,28 +161,88 @@ class CustomCartes extends HTMLElement {
 
       details.appendChild(summary);
 
-      famille.cartes.forEach((carte) => {
-        const div = document.createElement('div');
-        div.id = carte.id;
+      const fCartes = famille.cartes.sort((a, b) => {
+        return a.titre.localeCompare(b.titre);
+      });
+
+      fCartes.forEach((carte) => {
+        const figure = document.createElement('figure');
+
+        const img = document.createElement('img');
+        img.alt = carte.description;
+        img.src = `${window.location.protocol}//${window.location.host}/assets/img/cartes/${carte.id}.png`;
+        img.setAttribute('lazy', 'loading');
+        figure.appendChild(img);
+
+        const figCaption = document.createElement('figcaption');
 
         const titre = document.createElement('p');
+        titre.className = 'titre';
         titre.textContent = carte.titre;
-
-        const description = document.createElement('p');
-        description.textContent = carte.description;
+        figCaption.appendChild(titre);
 
         const sousTitre = document.createElement('p');
+        sousTitre.className = 'sous-titre';
         sousTitre.innerText = carte.sousTitre;
+        figCaption.appendChild(sousTitre);
 
-        div.appendChild(titre);
-        div.appendChild(description);
-        div.appendChild(sousTitre);
+        figure.appendChild(figCaption);
 
-        details.appendChild(div);
+        details.appendChild(figure);
       });
 
       this.shadowRoot.appendChild(details);
     });
+
+    const style = document.createElement('style');
+
+    style.textContent = `
+
+    details {
+      margin-bottom: 1em;
+    }
+
+    summary {
+      font-size: 130%;
+    }
+
+    figure {
+      border-bottom: 0.1em solid;
+      margin: 2em auto;
+      text-align: center;
+    }
+
+    figure:last-child {
+      border-bottom: 0;
+    }
+    
+    figcaption {
+      text-align: center;
+    }
+
+    img {
+      width: 75%;
+    }
+
+    @media screen and (max-width: 768px) {
+      img {
+        width:100%;
+      }
+    }
+
+    .titre {
+      font-weight: 600;
+      font-size: 102%;
+      margin-bottom: 0;
+    }
+
+    .sous-titre {
+      margin-top : 0;
+    }
+    
+    `;
+
+    this.shadowRoot.appendChild(style);
 
     /* const style = document.createElement('style');
     style.textContent = `details > summary {
@@ -232,7 +297,11 @@ class CustomPicture extends HTMLElement {
 
       const style = document.createElement('style');
       style.textContent = `
-        .img-responsive { width:20rem; }
+        .img-dark,
+        .img-light,
+        .img-responsive {
+          width:20rem;
+        }
 
         .img-round {
           border-radius: 50%;
@@ -241,14 +310,18 @@ class CustomPicture extends HTMLElement {
           height: 20rem;
           object-fit: cover;
         }
-          
+
        .icon {
           vertical-align: middle;
           width:2em;
         }
 
-        @media screen and (max-width: 599px) {
-          .img-responsive { width:100%; }
+        @media screen and (max-width: 600px) {
+          .img-dark,
+          .img-light,
+          .img-responsive {
+            width:100%;
+          }
         }
         
         `;
