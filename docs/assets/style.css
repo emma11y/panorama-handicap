@@ -193,6 +193,7 @@ a:hover {
   flex-direction: column;
 }
 
+li,
 .reseaux-sociaux ul li {
   margin-bottom: 1em;
 }
