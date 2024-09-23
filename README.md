@@ -27,3 +27,9 @@ La plupart de ses sujets de prédilection tournent autour de l'inclusion au sens
 Rêve de participer à rendre le monde plus accessible avec équité.
 
 ## Remerciements
+
+Un grand merci à [Emilie Deltor - Reflets Oniriques](https://instabio.cc/RefletsOniriques-dEDesign) pour les les illustrations et le design des cartes.
+
+Merci à notre entreprise [Shodo](https://shodo.io) d'avoir financé notre atelier.
+
+Les personae sont librement inspirées et traduites des illustrations de [Microsoft Inclusive Design](https://inclusive.microsoft.design/)
