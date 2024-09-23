@@ -3,11 +3,9 @@ const isProd = window.location.hostname.includes('emma11y.github.io');
 const titlePage =
   'Immersion dans les Situations de Handicap : Participez à un Panorama Interactif';
 
-window.onload = () => {};
-
-document.addEventListener('DOMContentLoaded', () => {
+window.onload = () => {
   setComponents();
-});
+};
 
 function setComponents() {
   customElements.define('app-router', AppRouter);
@@ -243,31 +241,6 @@ class CustomCartes extends HTMLElement {
     `;
 
     this.shadowRoot.appendChild(style);
-
-    /* const style = document.createElement('style');
-    style.textContent = `details > summary {
-  padding: 2px 6px;
-  width: 15em;
-  background-color: #ddd;
-  border: none;
-  box-shadow: 3px 3px 4px black;
-  cursor: pointer;
-}
-
-details > p {
-  border-radius: 0 0 10px 10px;
-  background-color: #ddd;
-  padding: 2px 6px;
-  margin: 0;
-  box-shadow: 3px 3px 4px black;
-}
-
-details[open] > summary {
-  background-color: #ccf;
-}
-`;
-
-    this.shadowRoot.appendChild(style);*/
   }
 }
 
@@ -375,6 +348,8 @@ class AppRouter extends HTMLElement {
   }
 
   async handleRoute() {
+    alert(window.location.href);
+
     const path = window.location.pathname;
 
     let title = '';
@@ -401,6 +376,7 @@ class AppRouter extends HTMLElement {
         filename = '/pages/a-propos.html';
         title = 'A propos de nous';
         break;
+      case '/panorama-handicap/erreur':
       default:
         filename = '/pages/erreur.html';
         title = 'Erreur 404';
