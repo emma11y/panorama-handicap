@@ -227,3 +227,7 @@ li,
 .text-center {
   text-align: center;
 }
+
+.slides embed {
+  width: 100%;
+}
