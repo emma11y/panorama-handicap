@@ -168,11 +168,13 @@ class CustomCartes extends HTMLElement {
 
         const img = document.createElement('img');
         img.alt = carte.description;
-        img.src = `/assets/img/cartes/${carte.id}.png`;
+        let src = `/assets/img/cartes/${carte.id}.png`;
 
         if (isProd) {
-          img.src = absolutePath + img.src;
+          src = absolutePath + src;
         }
+
+        img.src = src;
 
         img.setAttribute('lazy', 'loading');
         figure.appendChild(img);
