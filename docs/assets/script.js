@@ -168,7 +168,12 @@ class CustomCartes extends HTMLElement {
 
         const img = document.createElement('img');
         img.alt = carte.description;
-        img.src = `${window.location.protocol}//${window.location.host}/assets/img/cartes/${carte.id}.png`;
+        img.src = `/assets/img/cartes/${carte.id}.png`;
+
+        if (isProd) {
+          img.src = absolutePath + img.src;
+        }
+
         img.setAttribute('lazy', 'loading');
         figure.appendChild(img);
 
@@ -258,7 +263,7 @@ class CustomPicture extends HTMLElement {
     img.setAttribute('lazy', 'loading');
 
     if (isProd) {
-      img.src = `${absolutePath}/${this.attributes.src.value}/panorama-handicap/`;
+      img.src = `${absolutePath}/${this.attributes.src.value}`;
     }
 
     if (this.attributes.style) {
