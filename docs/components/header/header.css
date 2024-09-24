@@ -1,3 +1,8 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
 fieldset {
   padding: 0;
   margin: 0;
@@ -9,6 +14,7 @@ fieldset {
   text-align: right;
 }
 
+.github a,
 .theme-switcher button {
   background-color: var(--bg-primary);
   border: 0.1rem solid var(--color-primary);
@@ -19,22 +25,37 @@ fieldset {
   display: inline-flex;
 }
 
+.github a {
+  width: 2em;
+}
+
+.github svg {
+  height: 1.25em;
+  margin: auto;
+}
+
 .theme-switcher button svg {
   height: 1.7em;
   margin: auto;
 }
 
-.theme-switcher button svg path {
+svg path {
   fill: var(--color-primary);
 }
 
-.theme-switcher button:hover {
+.github a:hover,
+.github a:focus-visible,
+.theme-switcher button:hover,
+.theme-switcher button:focus-visible {
   color: var(--white);
   background-color: var(--red);
   border-color: var(--bg-primary);
 }
 
-.theme-switcher button:hover svg path {
+.github a:hover svg path,
+.github a:focus-visible svg path,
+.theme-switcher button:hover svg path,
+.theme-switcher button:focus-visible svg path {
   fill: var(--white);
 }
 

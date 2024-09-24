@@ -258,7 +258,7 @@ class CustomPicture extends HTMLElement {
     img.setAttribute('lazy', 'loading');
 
     if (isProd) {
-      img.src = `${absolutePath}/${this.attributes.src.value}`;
+      img.src = `${absolutePath}/${this.attributes.src.value}/panorama-handicap/`;
     }
 
     if (this.attributes.style) {
