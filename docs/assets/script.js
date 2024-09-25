@@ -273,7 +273,9 @@ class CustomPicture extends HTMLElement {
     }
 
     if (this.attributes.class) {
-      img.classList.add(this.attributes.class.value);
+      this.attributes.class.value.split(' ').forEach((value) => {
+        img.classList.add(value);
+      });
 
       const style = document.createElement('style');
       style.textContent = `
@@ -281,6 +283,10 @@ class CustomPicture extends HTMLElement {
         .img-light,
         .img-responsive {
           width:20rem;
+        }
+
+        w-auto {
+          width: auto;
         }
 
         .img-round {
@@ -299,7 +305,8 @@ class CustomPicture extends HTMLElement {
         @media screen and (max-width: 600px) {
           .img-dark,
           .img-light,
-          .img-responsive {
+          .img-responsive,
+          .s-width-100 {
             width:100%;
           }
         }
