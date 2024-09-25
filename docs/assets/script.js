@@ -209,6 +209,15 @@ class CustomCartes extends HTMLElement {
 
     summary {
       font-size: 130%;
+      cursor: pointer;
+    }
+
+    summary:hover {
+       text-decoration-thickness: 0.2em;
+      text-decoration-line: underline;
+      text-decoration-style: unset;
+      text-underline-offset: 0.5em;
+       text-decoration-color: var(--red);
     }
 
     figure {

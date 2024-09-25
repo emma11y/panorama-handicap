@@ -2,7 +2,7 @@
 
 ## Comment accéder au site ?
 
-Accéder à notre petit site qui regroupe toutes les informations concernant notre atelier : [https://emma11y.github.io/panorama-handicap/](https://emma11y.github.io/panorama-handicap/)
+Accéder à notre site qui regroupe toutes les informations concernant notre atelier : [https://emma11y.github.io/panorama-handicap/](https://emma11y.github.io/panorama-handicap/)
 
 ## Le sujet
 
