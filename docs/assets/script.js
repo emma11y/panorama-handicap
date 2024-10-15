@@ -14,6 +14,7 @@ function setComponents() {
   customElements.define('custom-footer', CustomFooter);
   customElements.define('custom-cartes', CustomCartes);
   customElements.define('custom-picture', CustomPicture);
+  customElements.define('custom-figure', CustomFigure);
 }
 
 class CustomHeader extends HTMLElement {
@@ -82,7 +83,7 @@ class CustomHeader extends HTMLElement {
     const routerLinks = this.shadowRoot.querySelectorAll('router-link');
 
     routerLinks.forEach((routerLink) => {
-      let link = routerLink.shadowRoot.querySelector('a');
+      let link = routerLink.querySelector('a');
 
       if (
         window.location.pathname === routerLink.attributes.href.value ||
@@ -122,12 +123,13 @@ class CustomFooter extends HTMLElement {
 class CustomCartes extends HTMLElement {
   constructor() {
     super();
-
-    this.attachShadow({ mode: 'open' });
   }
 
   async connectedCallback() {
     await this.loadCartes();
+
+    var tablist = document.querySelector('[role=tablist]');
+    new TabsAutomatic(tablist);
   }
 
   async loadCartes() {
@@ -150,24 +152,66 @@ class CustomCartes extends HTMLElement {
       return a.titre.localeCompare(b.titre);
     });
 
-    familles.forEach((famille) => {
-      const details = document.createElement('details');
-      details.id = famille.id;
+    const tabs = document.createElement('div');
+    tabs.className = 'tabs';
+    //tabs.setAttribute('aria-live', 'polite');
+    //tabs.setAttribute('aria-relevant', 'additions text');
 
-      const summary = document.createElement('summary');
-      summary.textContent = famille.titre;
+    const title = document.createElement('h3');
+    title.id = 'tablist-familles';
+    title.textContent = 'Familles';
+    title.className = 'tabs';
+    tabs.appendChild(title);
 
-      details.appendChild(summary);
+    const tablist = document.createElement('div');
+    tablist.role = 'tablist';
+    tablist.setAttribute('aria-labelledby', title.id);
+
+    //https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-manual/
+
+    const tabPanels = [];
+
+    familles.forEach((famille, index) => {
+      const button = document.createElement('button');
+      button.id = `tab-${famille.id}`;
+      button.type = 'button';
+      button.role = 'tab';
+      button.setAttribute('aria-controls', `tabpanel-${famille.id}`);
+
+      const span = document.createElement('span');
+      span.className = 'focus';
+      span.textContent = famille.titre;
+
+      button.appendChild(span);
+
+      tablist.appendChild(button);
+
+      const tabPanel = document.createElement('div');
+      tabPanel.id = `tabpanel-${famille.id}`;
+      tabPanel.role = 'tabpanel';
+      tabPanel.setAttribute('tabindex', 0);
+      tabPanel.setAttribute('aria-labelledBy', `tab-${famille.id}`);
 
       const fCartes = famille.cartes.sort((a, b) => {
         return a.titre.localeCompare(b.titre);
       });
 
+      const list = document.createElement('div');
+      list.role = 'list';
+
       fCartes.forEach((carte) => {
+        const listitem = document.createElement('div');
+        listitem.role = 'listitem';
+
+        const h4 = document.createElement('h4');
+        h4.textContent = carte.titre;
+
+        listitem.appendChild(h4);
+
         const figure = document.createElement('figure');
 
         const img = document.createElement('img');
-        img.alt = carte.description;
+        img.alt = '';
         let src = `/assets/img/cartes/${carte.id}.png`;
 
         if (isProd) {
@@ -183,93 +227,45 @@ class CustomCartes extends HTMLElement {
 
         const titre = document.createElement('p');
         titre.className = 'titre';
-        titre.textContent = carte.titre;
+        titre.innerText = carte.sousTitre;
         figCaption.appendChild(titre);
 
         const sousTitre = document.createElement('p');
-        sousTitre.className = 'sous-titre';
-        sousTitre.innerText = carte.sousTitre;
+        sousTitre.className = 'sr-only';
+        sousTitre.textContent = carte.description;
         figCaption.appendChild(sousTitre);
 
         figure.appendChild(figCaption);
 
-        details.appendChild(figure);
+        listitem.appendChild(figure);
+
+        list.appendChild(listitem);
       });
 
-      this.shadowRoot.appendChild(details);
+      tabPanel.appendChild(list);
+
+      tabPanels.push(tabPanel);
     });
 
-    const style = document.createElement('style');
+    tabs.appendChild(tablist);
 
-    style.textContent = `
+    tabPanels.forEach((tb) => {
+      tabs.appendChild(tb);
+    });
 
-    details {
-      margin-bottom: 1em;
-    }
-
-    summary {
-      font-size: 130%;
-      cursor: pointer;
-    }
-
-    summary:hover {
-       text-decoration-thickness: 0.2em;
-      text-decoration-line: underline;
-      text-decoration-style: unset;
-      text-underline-offset: 0.5em;
-       text-decoration-color: var(--red);
-    }
-
-    figure {
-      border-bottom: 0.1em solid;
-      margin: 2em auto;
-      text-align: center;
-    }
-
-    figure:last-child {
-      border-bottom: 0;
-    }
-    
-    figcaption {
-      text-align: center;
-    }
-
-    img {
-      width: 75%;
-    }
-
-    @media screen and (max-width: 768px) {
-      img {
-        width:100%;
-      }
-    }
-
-    .titre {
-      font-weight: 600;
-      font-size: 102%;
-      margin-bottom: 0;
-    }
-
-    .sous-titre {
-      margin-top : 0;
-    }
-    
-    `;
-
-    this.shadowRoot.appendChild(style);
+    this.appendChild(tabs);
   }
 }
 
 class CustomPicture extends HTMLElement {
   constructor() {
     super();
-
-    this.attachShadow({ mode: 'open' });
   }
 
   connectedCallback() {
     let img = document.createElement('img');
     img.alt = this.attributes.alt.value;
+
     img.src = `${window.location.protocol}//${window.location.host}/${this.attributes.src.value}`;
     img.setAttribute('lazy', 'loading');
 
@@ -285,46 +281,94 @@ class CustomPicture extends HTMLElement {
       this.attributes.class.value.split(' ').forEach((value) => {
         img.classList.add(value);
       });
-
-      const style = document.createElement('style');
-      style.textContent = `
-        .img-dark,
-        .img-light,
-        .img-responsive {
-          width:20rem;
-        }
-
-        w-auto {
-          width: auto;
-        }
-
-        .img-round {
-          border-radius: 50%;
-          height: auto;
-          width: 20rem;
-          height: 20rem;
-          object-fit: cover;
-        }
-
-       .icon {
-          vertical-align: middle;
-          width:2em;
-        }
-
-        @media screen and (max-width: 600px) {
-          .img-dark,
-          .img-light,
-          .img-responsive,
-          .s-width-100 {
-            width:100%;
-          }
-        }
-        
-        `;
-      this.shadowRoot.appendChild(style);
     }
 
-    this.shadowRoot.appendChild(img);
+    this.appendChild(img);
+
+    /* if (this.attributes.toggle) {
+      const divToggle = document.createElement('div');
+      divToggle.classList.add('toggle-gp');
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'btn-toggle';
+      button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('aria-controls', `alt-${this.attributes.id.value}`);
+      button.textContent = "Consulter la transcription de l'image";
+
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const expanded = e.target.getAttribute('aria-expanded');
+
+        console.log('expanded', expanded);
+
+        if (expanded === 'true') {
+          console.log('true');
+          button.setAttribute('aria-expanded', 'false');
+          divToggle.classList.remove('is-active');
+        } else {
+          console.log('false');
+          button.setAttribute('aria-expanded', 'true');
+          divToggle.classList.add('is-active');
+          console.log(button, divContenttoggle);
+        }
+      });
+
+      const divContenttoggle = document.createElement('div');
+      divContenttoggle.id = `alt-${this.attributes.id.value}`;
+      divContenttoggle.className = 'content-to-toggle';
+
+      const p = document.createElement('p');
+      p.textContent = this.attributes.alt.value;
+      divContenttoggle.appendChild(p);
+
+      divToggle.appendChild(button);
+      divToggle.appendChild(divContenttoggle);
+      this.appendChild(divToggle);
+    }*/
+  }
+}
+
+class CustomFigure extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    const figure = document.createElement('figure');
+
+    let img = document.createElement('img');
+    img.alt = this.attributes.alt.value;
+
+    img.src = `${window.location.protocol}//${window.location.host}/${this.attributes.src.value}`;
+    img.setAttribute('lazy', 'loading');
+
+    if (isProd) {
+      img.src = `${absolutePath}/${this.attributes.src.value}`;
+    }
+
+    if (this.attributes.style) {
+      img.style = this.attributes.style.value;
+    }
+
+    if (this.attributes.class) {
+      this.attributes.class.value.split(' ').forEach((value) => {
+        img.classList.add(value);
+      });
+    }
+
+    const figCaption = document.createElement('figcaption');
+
+    const legend = document.createElement('p');
+    legend.className = 'sr-only';
+    legend.innerText = this.attributes.longdesc.value;
+    figCaption.appendChild(legend);
+
+    figure.appendChild(img);
+    figure.appendChild(figCaption);
+
+    this.appendChild(figure);
   }
 }
 
@@ -432,8 +476,6 @@ class AppRouter extends HTMLElement {
 class RouterLink extends HTMLElement {
   constructor() {
     super();
-
-    this.attachShadow({ mode: 'open' });
   }
 
   connectedCallback() {
@@ -447,35 +489,133 @@ class RouterLink extends HTMLElement {
       document.querySelector('app-router').navigate(href);
     };
 
-    const style = document.createElement('style');
+    this.appendChild(link);
+  }
+}
 
-    style.textContent = `
-    a {
-      color: var(--color-primary);
-      text-decoration: none;
-      cursor: pointer;
+// https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/
+/*
+ *   This content is licensed according to the W3C Software License at
+ *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+ *
+ *   File:   tabs-automatic.js
+ *
+ *   Desc:   Tablist widget that implements ARIA Authoring Practices
+ */
+
+class TabsAutomatic {
+  constructor(groupNode) {
+    this.tablistNode = groupNode;
+
+    this.tabs = [];
+
+    this.firstTab = null;
+    this.lastTab = null;
+
+    this.tabs = Array.from(this.tablistNode.querySelectorAll('[role=tab]'));
+    this.tabpanels = [];
+
+    for (var i = 0; i < this.tabs.length; i += 1) {
+      var tab = this.tabs[i];
+      var tabpanel = document.getElementById(tab.getAttribute('aria-controls'));
+
+      tab.tabIndex = -1;
+      tab.setAttribute('aria-selected', 'false');
+      this.tabpanels.push(tabpanel);
+
+      tab.addEventListener('keydown', this.onKeydown.bind(this));
+      tab.addEventListener('click', this.onClick.bind(this));
+
+      if (!this.firstTab) {
+        this.firstTab = tab;
+      }
+      this.lastTab = tab;
     }
 
-    a:hover,
-    a.active {
-      text-decoration-thickness: 0.2em;
-      text-decoration-line: underline;
-      text-decoration-style: unset;
-      text-underline-offset: 0.5em;
+    this.setSelectedTab(this.firstTab, false);
+  }
+
+  setSelectedTab(currentTab, setFocus) {
+    if (typeof setFocus !== 'boolean') {
+      setFocus = true;
+    }
+    for (var i = 0; i < this.tabs.length; i += 1) {
+      var tab = this.tabs[i];
+      if (currentTab === tab) {
+        tab.setAttribute('aria-selected', 'true');
+        tab.removeAttribute('tabindex');
+        this.tabpanels[i].classList.remove('is-hidden');
+        if (setFocus) {
+          tab.focus();
+        }
+      } else {
+        tab.setAttribute('aria-selected', 'false');
+        tab.tabIndex = -1;
+        this.tabpanels[i].classList.add('is-hidden');
+      }
+    }
+  }
+
+  setSelectedToPreviousTab(currentTab) {
+    var index;
+
+    if (currentTab === this.firstTab) {
+      this.setSelectedTab(this.lastTab);
+    } else {
+      index = this.tabs.indexOf(currentTab);
+      this.setSelectedTab(this.tabs[index - 1]);
+    }
+  }
+
+  setSelectedToNextTab(currentTab) {
+    var index;
+
+    if (currentTab === this.lastTab) {
+      this.setSelectedTab(this.firstTab);
+    } else {
+      index = this.tabs.indexOf(currentTab);
+      this.setSelectedTab(this.tabs[index + 1]);
+    }
+  }
+
+  /* EVENT HANDLERS */
+
+  onKeydown(event) {
+    var tgt = event.currentTarget,
+      flag = false;
+
+    switch (event.key) {
+      case 'ArrowLeft':
+        this.setSelectedToPreviousTab(tgt);
+        flag = true;
+        break;
+
+      case 'ArrowRight':
+        this.setSelectedToNextTab(tgt);
+        flag = true;
+        break;
+
+      case 'Home':
+        this.setSelectedTab(this.firstTab);
+        flag = true;
+        break;
+
+      case 'End':
+        this.setSelectedTab(this.lastTab);
+        flag = true;
+        break;
+
+      default:
+        break;
     }
 
-    a.active {
-      text-decoration-color: var(--red);
+    if (flag) {
+      event.stopPropagation();
+      event.preventDefault();
     }
+  }
 
-    a:hover,
-    a.active:hover {
-      text-decoration-color: var(--color-primary);
-    }
-    
-    `;
-
-    this.shadowRoot.appendChild(link);
-    this.shadowRoot.appendChild(style);
+  onClick(event) {
+    this.setSelectedTab(event.currentTarget);
   }
 }
